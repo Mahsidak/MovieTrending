@@ -9,23 +9,67 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    //IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    //ViewModel
+    var viewModel: MainViewModel = MainViewModel()
+    
+    //Variables:
+    var moviesDataSource: [MovieTableCellViewModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configView()
+        bindViewModel()
+    }
+    
+    func configView() {
+        self.title = "Top Trending Movies"
+        self.setupTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.getData()
+    }
+    
+    func bindViewModel() {
+        viewModel.isLoadingData.bind { [weak self] isLoading in
+            guard let isLoading = isLoading else {
+                return
+            }
+            DispatchQueue.main.async {
+                if isLoading {
+                    self?.activityIndicator.startAnimating()
+                } else {
+                    self?.activityIndicator.stopAnimating()
+                }
+            }
+        }
         
-        self.title = "Main View"
+        viewModel.movies.bind { [weak self] movies in
+            guard let self = self,
+                  let movies = movies else {
+                return
+            }
+            self.moviesDataSource = movies
+            self.reloadTableView()
+        }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func openDetails(movieId: Int) {
+        guard let movie = viewModel.retriveMovie(withId: movieId) else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            let detailsViewModel = DetailsMovieViewModel(movie: movie)
+            let controller = DetailsMovieViewController(viewModel: detailsViewModel)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
-    */
-
 }
+
