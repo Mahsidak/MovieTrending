@@ -39,7 +39,7 @@ class MovieTableViewCell: UITableViewCell {
     
     func setupCell(viewModel: MovieTableCellViewModel) {
         self.nameLabel.text = viewModel.name
-        self.dateLable.text = viewModel.date
+        self.dateLable.text = dateFormatHelper(date: viewModel.date)
         self.scoreLabel.text = viewModel.score
         self.movieImageView.sd_setImage(with: viewModel.image)
     }

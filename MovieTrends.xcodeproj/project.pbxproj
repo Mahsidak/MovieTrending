@@ -29,6 +29,7 @@
 		4380860929E5621F00373BDF /* MovieTrendsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380860829E5621F00373BDF /* MovieTrendsUITestsLaunchTests.swift */; };
 		4380862929E5647D00373BDF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380862729E5647D00373BDF /* MainViewController.swift */; };
 		4380862A29E5647D00373BDF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4380862829E5647D00373BDF /* MainViewController.xib */; };
+		43A3A5B729E8174F00AECC77 /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A3A5B629E8174F00AECC77 /* DateFormatHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		4380860829E5621F00373BDF /* MovieTrendsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTrendsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4380862729E5647D00373BDF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4380862829E5647D00373BDF /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		43A3A5B629E8174F00AECC77 /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		438085E429E5621F00373BDF /* MovieTrends */ = {
 			isa = PBXGroup;
 			children = (
+				43A3A5B529E8173100AECC77 /* Utility */,
 				4380861C29E5630400373BDF /* Networking */,
 				4380861B29E562FB00373BDF /* Classes */,
 				4380861A29E562EA00373BDF /* Extentions */,
@@ -251,6 +254,14 @@
 				43710BE329E6888D00E02B2F /* TableViewController.swift */,
 			);
 			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		43A3A5B529E8173100AECC77 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				43A3A5B629E8174F00AECC77 /* DateFormatHelper.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +409,7 @@
 				43710BE829E6A2EE00E02B2F /* NetworkConstant.swift in Sources */,
 				43710BEA29E6AB7900E02B2F /* Observable.swift in Sources */,
 				43710BE629E68A7D00E02B2F /* MainViewModel.swift in Sources */,
+				43A3A5B729E8174F00AECC77 /* DateFormatHelper.swift in Sources */,
 				43710BF529E6BB3100E02B2F /* UIViewExtensions.swift in Sources */,
 				43710BEC29E6B44D00E02B2F /* TrendingMoviesModel.swift in Sources */,
 				43710BF929E6BCEE00E02B2F /* MovieTableCellViewModel.swift in Sources */,
